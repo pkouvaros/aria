@@ -1,0 +1,102 @@
+\documentclass{article}[11pt]
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+
+\title{Verifiable Neural Multi-agent Systems}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{What do you want to do?}
+
+%* What’ s the hunch or big idea you can ’t get off your
+%mind? 
+%* Is there a problem space you want to explore?
+%* A hypothesis you want to test? A new method, tool, or
+%technology you want to create?
+%* How does your proposal align with or challenge the
+%assumptions of the Mathematics for Safe AI?
+%* What will be the output of your effort?
+
+We want to put forward formal methods for the principled
+analysis of multi-agent systems comprising agents equipped
+with neural network components. We target in particular (i)
+the derivation of formal semantics for neural-symbolic
+multi-agent systems, able to model the interactions of
+possibly unbounded collections of agents with neural and/or
+symbolic perception and control mechanisms, (ii) the
+construction of a specification language to express the
+properties of these systems, including properties pertaining
+to high-level attitudes of agency, such as epistemic and
+strategic properties, (iii) the computational complexity
+analysis of the semantics and specifications from (i) and
+(ii), (iv) the development of efficient
+optimisation-based verification methods, (v) the building of
+a verification tool that implements the methods from (iv)
+and supports a dedicated programming language bases on
+$\lambda$-calculus for the ({\bf insert here the
+characteristics of the language}) description of systems and
+correctness properties.
+
+Our goals are fully aligned with the Mathematics for Safe AI
+assumptions.  They recognise the increasing integration of
+AI modules within networks of interconnected components and
+provide methods for analysing their safety.  The methods are
+formal and  can thus identify errors outside of testing
+scenarios, as opposed to testing, where the safety of
+systems can only be ascertained within testing scenarios.
+
+Towards the development of the methods, we acknowledge the
+challenges pertaining to the extension of formal methods to account
+for neural-symbolic systems. Firstly, verification of
+unbounded safety properties for neural systems is
+undecidable. Secondly, verification of unbounded systems,
+comprising arbitrarily many components is also undecidable.
+Thirdly, verification of isolated neural network components
+is NP-complete. In tandem with these negative results, we
+aim to shed light on classes of systems can be effectively
+verified, thereby providing design guidelines for verifiable
+AI. For instance, verification for standalone neural
+networks is hindered by big weighted sums and non-linear
+activation functions that in practice can often be
+simplified at no or little performance drops. 
+
+
+\section{Why is it of scientific or technological importance?}
+
+%* If it works out, how would it disrupt the current frontier
+%of knowledge or supersede the state-of-the-art?
+%* What capabilities or future work could it unlock?
+%* Why do you want to spend your time on this?
+
+
+\section{Why hasn't been done yet?}
+
+%* Have recent developments only now made it possible?
+%* Has the research community overlooked it? Perhaps no one
+%has put the pieces together like this before?
+%* How is your approach different or unusual compared to
+%what’s being funded or developed elsewhere?
+
+\section{How do you plan to make it happen?}
+
+%* Where will you start and what steps will you take?
+%* What are the technical challenges?
+%* What does success look like to you? If there are ways to
+%measure it, do you have early thoughts on how you ’ll do
+%that?
+
+\section{Why are you the right person (or
+team) to work on it?}
+
+%* Where does your insight come from?
+%* Do you have any examples that showcase your motivation,
+%niche expertise, or ability to commit?
+%* If you're looking to extend your team, what key expertise
+%should the next member bring?
+
+\end{document}
