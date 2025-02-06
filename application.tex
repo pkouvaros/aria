@@ -1,8 +1,18 @@
-\documentclass{article}[11pt]
+\documentclass[11pt]{article}
 
-\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[margin=0.8in]{geometry}
+
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
+
+
+% \renewcommand{\rmdefault}{phv} % Arial
+% \renewcommand{\sfdefault}{phv} % Arial
+
 
 \title{Verifiable Neural Multi-agent Systems}
 \date{}
@@ -82,6 +92,27 @@ simplified at no or little performance drops.
 %* How is your approach different or unusual compared to
 %what’s being funded or developed elsewhere?
 
+
+Neural-symbolic MAS are a relatively novel type of systems. VenMAS is
+a research prototype, developed by the applicants, that verifies
+neural-symbolic multi-agent systems by a reduction to the feasibility
+problem of a mixed-integer linear program.  Currently, to verify such
+a system against bounded temporal logic properties in VenMAS, the user
+has to hardcode programmatically the system specification and the
+temporal property.
+
+There exist proper specification languages, such as Moxi for symbolic model
+checking of finite- and infinite-state systems against temporal logic
+properties~\cite{Rozier+2024}, ISPL (the interpreted systems
+programming language) for purely symbolic multi-agent systems and
+their verification properties in temporal logics~\cite{LomuscioQR17},
+CyPhyML for cyber-physical systems~\cite{Simko+13}, and Vehicle for
+verification of neural-symbolic programs against expressive properties
+in dependently typed lambda-calculus \cite{Daggitt+24}. However, none
+of these languages is fully equipped to describe neural-symbolic
+multi-agent systems and the properties about their temporal evolution.
+
+
 \section{How do you plan to make it happen?}
 
 %* Where will you start and what steps will you take?
@@ -89,6 +120,36 @@ simplified at no or little performance drops.
 %* What does success look like to you? If there are ways to
 %measure it, do you have early thoughts on how you ’ll do
 %that?
+
+
+\paragraph{WP1} We will design a (low-level) specification language
+based on Vehicle, Moxi and ISPL, guided by the following criteria:
+\begin{itemize}
+\item the syntax should be human and machine readable.  
+\item the language should be based on a typed lambda-calculus language.
+\item the language should be easily extendable to allow specification
+  of various properties such as temporal logic, epistemic logic,
+  strategic properties, etc.
+\end{itemize}
+We will define the formal semantics of the systems defined in our language.
+
+\paragraph{WP2}  First, we will design an abstract intermediate language
+for capturing the evolution of an NS-MAS. This will be a
+constraint-based language for specifying piecewise-linear
+functions. Second, we will devise a proof theory which would allow us
+to translate specifications to system evolutions encoded in the
+intermediate language.
+
+\paragraph{WP3}  We will extend VenMAS to take as input a declarative
+specification of an NS-MAS and a property, and verify the NS-MAS
+against that property. To this end, we will implement a parser, and a
+translation from a specification to an intermediate representation
+and from an intermediate representation to a MILP feasibility problem.
+
+\paragraph{WP4} We will develop and implement a novel translation from
+an intermediate representation to a neural network verification
+problem. This would enable the use of VNN solvers optimised for GPUs,
+which would improve scalability.
 
 \section{Why are you the right person (or
 team) to work on it?}
@@ -98,5 +159,27 @@ team) to work on it?}
 %niche expertise, or ability to commit?
 %* If you're looking to extend your team, what key expertise
 %should the next member bring?
+
+Our team is uniquely placed to have the right expertise for this
+project. Michael, Elena and Panagiotis have introduced neural-symbolic
+multi-agent systems based on the Interpreted Systems semantics, and
+published the VenMAS tool for verification of those against bounded
+CTL and ATL properties.  Both Michael and Elena worked on the
+implementation of VenMAS and a number of use-cases which have been
+verified using VenMAS.  Panagiotis is an expert of symbolic MAS,
+including parameterised systems where the exact number of the agents
+is unknown.  Additionally, Elena and Panagiotis have an extensive
+background in logic, formal verification of NNs and mixed-integer
+linear solvers.
+
+On the other hand, Marco will bring in his expertise in category
+theory, theorem proving and typed programming language.  Paulo Torrens
+is finishing PhD in theorem proving and CPS-calculus, and has relevant
+theoretical and practical skills. Paulo will be the RA.
+
+ 
+
+\bibliographystyle{plain}
+\bibliography{bibl}
 
 \end{document}
