@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage[margin=0.8in]{geometry}
+\usepackage{url}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
@@ -75,6 +76,18 @@ networks is hindered by big weighted sums and non-linear
 activation functions that in practice can often be
 simplified at no or little performance drops. 
 
+% \begin{itemize}
+% \item Put forward formal methods for the principled analysis of
+%   multi-agent systems comprising agents equipped with neural network
+%   components.
+  
+% \item Design a (low-level, machine and human readable) specification
+%   language for describing neural-symbolic multi-agent systems and the
+%   properties they should satisfy.
+
+% \item Develop general purpose techniques for efficient verification of
+%   NS-MAS using automated theorem provers.
+% \end{itemize}
 
 \section{Why is it of scientific or technological importance?}
 
@@ -82,6 +95,26 @@ simplified at no or little performance drops.
 %of knowledge or supersede the state-of-the-art?
 %* What capabilities or future work could it unlock?
 %* Why do you want to spend your time on this?
+
+\begin{itemize}
+\item Many modern complex systems involving AI-based components can be
+  modelled as neural-symbolic multi-agent systems.
+  
+\item There is no standard specification language for verification of
+  neural-symbolic MAS.
+
+\item The existing tool VenMAS currently requires hardcoding the
+  systems specs, this is time-consuming and error-prone.
+
+\item The existing tool VenMAS encodes the verification problem into
+  the MILP feasibility problem. The scalability is a problem.
+
+\item This would facilitate the verification of real-world
+  neural-symbolic multi-agent systems through the creation of
+  declarative specifications.
+
+\item Better scalability of verification of complex real-world systems.
+\end{itemize}
 
 
 \section{Why hasn't been done yet?}
@@ -93,8 +126,13 @@ simplified at no or little performance drops.
 %what’s being funded or developed elsewhere?
 
 
-Neural-symbolic MAS are a relatively novel type of systems. VenMAS is
-a research prototype, developed by the applicants, that verifies
+Neural-symbolic MAS are a relatively novel type of systems. Initial
+work \cite{Akintunde+18,Akintunde+20,Akintunde+22} interprets
+neural-symbolic MAS as Neural Interpreted Systems. In
+\cite{KouvarosBB24}, we consider parameterised MAS, where the number
+of agents is not fixed.
+
+VenMAS \cite{Akintunde+22b} is a research prototype that verifies
 neural-symbolic multi-agent systems by a reduction to the feasibility
 problem of a mixed-integer linear program.  Currently, to verify such
 a system against bounded temporal logic properties in VenMAS, the user
@@ -121,9 +159,15 @@ multi-agent systems and the properties about their temporal evolution.
 %measure it, do you have early thoughts on how you ’ll do
 %that?
 
+\paragraph{WP1} We will formal semantics for neural-symbolic
+multi-agent systems, able to model the interactions of possibly
+unbounded collections of agents with neural and/or symbolic perception
+and control mechanisms. The verification properties will be expressed
+in temporal, epistemic and/or strategy logics.
 
-\paragraph{WP1} We will design a (low-level) specification language
-based on Vehicle, Moxi and ISPL, guided by the following criteria:
+
+\paragraph{WP2} We will design a (low-level) specification language
+based on Vehicle, Moxi and ISPL, guided by the following desiderata:
 \begin{itemize}
 \item the syntax should be human and machine readable.  
 \item the language should be based on a typed lambda-calculus language.
@@ -131,22 +175,21 @@ based on Vehicle, Moxi and ISPL, guided by the following criteria:
   of various properties such as temporal logic, epistemic logic,
   strategic properties, etc.
 \end{itemize}
-We will define the formal semantics of the systems defined in our language.
 
-\paragraph{WP2}  First, we will design an abstract intermediate language
+\paragraph{WP3}  First, we will design an abstract intermediate language
 for capturing the evolution of an NS-MAS. This will be a
 constraint-based language for specifying piecewise-linear
 functions. Second, we will devise a proof theory which would allow us
 to translate specifications to system evolutions encoded in the
 intermediate language.
 
-\paragraph{WP3}  We will extend VenMAS to take as input a declarative
+\paragraph{WP4}  We will extend VenMAS to take as input a declarative
 specification of an NS-MAS and a property, and verify the NS-MAS
 against that property. To this end, we will implement a parser, and a
 translation from a specification to an intermediate representation
 and from an intermediate representation to a MILP feasibility problem.
 
-\paragraph{WP4} We will develop and implement a novel translation from
+\paragraph{WP5} We will develop and implement a novel translation from
 an intermediate representation to a neural network verification
 problem. This would enable the use of VNN solvers optimised for GPUs,
 which would improve scalability.
