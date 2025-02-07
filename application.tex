@@ -15,7 +15,7 @@
 % \renewcommand{\sfdefault}{phv} % Arial
 
 
-\title{Verifiable Neural Multi-agent Systems}
+\title{Verifiable Neural-Symbolic Systems}
 \date{}
 
 \begin{document}
@@ -76,18 +76,18 @@ networks is hindered by big weighted sums and non-linear
 activation functions that in practice can often be
 simplified at no or little performance drops. 
 
-% \begin{itemize}
-% \item Put forward formal methods for the principled analysis of
-%   multi-agent systems comprising agents equipped with neural network
-%   components.
+\begin{itemize}
+\item Put forward formal methods for the principled analysis of
+  multi-agent systems comprising agents equipped with neural network
+  components.
   
-% \item Design a (low-level, machine and human readable) specification
-%   language for describing neural-symbolic multi-agent systems and the
-%   properties they should satisfy.
+\item Design a (low-level, machine and human readable) specification
+  language for describing neural-symbolic multi-agent systems and the
+  properties they should satisfy.
 
-% \item Develop general purpose techniques for efficient verification of
-%   NS-MAS using automated theorem provers.
-% \end{itemize}
+\item Develop general purpose techniques for efficient verification of
+  NS-MAS using automated theorem provers.
+\end{itemize}
 
 \section{Why is it of scientific or technological importance?}
 
@@ -159,15 +159,17 @@ multi-agent systems and the properties about their temporal evolution.
 %measure it, do you have early thoughts on how you ’ll do
 %that?
 
-\paragraph{WP1} We will formal semantics for neural-symbolic
-multi-agent systems, able to model the interactions of possibly
-unbounded collections of agents with neural and/or symbolic perception
-and control mechanisms. The verification properties will be expressed
-in temporal, epistemic and/or strategy logics.
+% \paragraph{WP1} We will formal semantics for neural-symbolic
+% multi-agent systems, able to model the interactions of possibly
+% unbounded collections of agents with neural and/or symbolic perception
+% and control mechanisms. The verification properties will be expressed
+% in temporal, epistemic and/or strategy logics.
 
+LanguagENeuralSystems
 
-\paragraph{WP2} We will design a (low-level) specification language
-based on Vehicle, Moxi and ISPL, guided by the following desiderata:
+\paragraph{WP1} (Paulo, Michael, Marco) We will design a programming
+language based on Vehicle, Moxi and ISPL for specifying neural MAS and
+their properties, guided by the following desiderata:
 \begin{itemize}
 \item the syntax should be human and machine readable.  
 \item the language should be based on a typed lambda-calculus language.
@@ -176,23 +178,39 @@ based on Vehicle, Moxi and ISPL, guided by the following desiderata:
   strategic properties, etc.
 \end{itemize}
 
-\paragraph{WP3}  First, we will design an abstract intermediate language
-for capturing the evolution of an NS-MAS. This will be a
-constraint-based language for specifying piecewise-linear
-functions. Second, we will devise a proof theory which would allow us
-to translate specifications to system evolutions encoded in the
-intermediate language.
+\paragraph{WP2} (Elena, Panagiotis, Marco) First, we will design an
+abstract intermediate language for capturing the evolution of an
+NS-MAS. This will be a constraint-based language for specifying
+piecewise-linear functions. Second, we will devise a proof theory
+which would allow us to translate specifications to system evolutions
+encoded in the intermediate language.
 
-\paragraph{WP4}  We will extend VenMAS to take as input a declarative
-specification of an NS-MAS and a property, and verify the NS-MAS
-against that property. To this end, we will implement a parser, and a
-translation from a specification to an intermediate representation
-and from an intermediate representation to a MILP feasibility problem.
+\paragraph{WP3} (Paulo, Michael) We will extend VenMAS to take as
+input a declarative specification of an NS-MAS and a property, and
+verify the NS-MAS against that property. To this end, we will
+implement a parser (T3.1 depends on WP1), and a translation from a
+specification to an intermediate representation (T3.2 depends on WP2).
 
-\paragraph{WP5} We will develop and implement a novel translation from
-an intermediate representation to a neural network verification
-problem. This would enable the use of VNN solvers optimised for GPUs,
-which would improve scalability.
+\paragraph{WP4} (Panagiotis, Elena) We will develop and implement a
+translation from an intermediate representation to a representation
+for a backend.
+% a MILP feasibility problem
+This includes a novel translation from an intermediate representation
+to a neural network verification problem. This would enable the use of
+VNN solvers optimised for GPUs, which would improve scalability.
+
+\paragraph{WP5} (Paulo, Michael, Panagiotis, Elena) Use-cases and evaluation 
+
+\begin{center}
+  \begin{tabular}{ccccccccccccc}
+    & 1 & 2 & 3& 4& 5 & 6 &7 &8& 9&10&11&12\\
+    WP1& x & x & x \\
+    WP2&   & x & x & x & x &   & \\
+    WP3&   &   &   & x & x & x & x & x & \\
+    WP4&   &   &   &   &   &   & x & x & x & x & x &   \\
+    WP5&   &   &   &   &   &   &   &   &   & x & x & x \\
+  \end{tabular}
+\end{center}
 
 \section{Why are you the right person (or
 team) to work on it?}
