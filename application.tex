@@ -7,6 +7,7 @@
 \usepackage[margin=0.8in]{geometry}
 \usepackage{url}
 \usepackage{paralist}
+\usepackage{tikz}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
@@ -241,16 +242,17 @@ such as a neural network verifier optimised for GPU-based computation,
 we will develop and implement a novel compilation of an intermediate
 representation to a neural network verification problem.
 
-As an example, consider again the constraints
+As an example, consider the constraint
 
 \[
-  \begin{array}{l}
-    \text{if }\delta = 1\text{, then }x = 1\\
-    \text{if }\delta = 0\text{, then }x = 2
-  \end{array}
+    \text{if }\delta = 1\text{, then }x = y
 \]
 
-This computation can be encoded as the following ReLU node:
+This constraint holds for the same values of $\delta$, $x$ and $y$ as
+the constraint
+$\text{ReLU}(x-y) + \text{ReLU}(y-x) - M(1 - \delta) \leq 0$, for some
+sufficiently large value of $M$. The latter is straightforward to
+represent as a NN verification problem.
 
 \paragraph{WP5} (Paulo, Michael, Panagiotis, Elena) Use-cases and evaluation 
 
