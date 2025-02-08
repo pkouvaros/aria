@@ -6,6 +6,7 @@
 \usepackage{color}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{url}
+\usepackage{paralist}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
@@ -14,6 +15,8 @@
 % \renewcommand{\rmdefault}{phv} % Arial
 % \renewcommand{\sfdefault}{phv} % Arial
 
+
+\newcommand{\op}{\mathop{\text{op}}}
 
 \title{Verifiable Neural-Symbolic Systems}
 \date{}
@@ -176,14 +179,46 @@ their properties, guided by the following desiderata:
 \item the language should be easily extendable to allow specification
   of various properties such as temporal logic, epistemic logic,
   strategic properties, etc.
+\item the language should not be tightly coupled to a particular
+  formalisation of a neural-symbolic system.
 \end{itemize}
 
 \paragraph{WP2} (Elena, Panagiotis, Marco) First, we will design an
 abstract intermediate language for capturing the evolution of an
-NS-MAS. This will be a constraint-based language for specifying
-piecewise-linear functions. Second, we will devise a proof theory
-which would allow us to translate specifications to system evolutions
-encoded in the intermediate language.
+NS-MAS. This will be an internal representation and an abstraction of
+the language of mixed-integer linear constraints that would allow us
+easy manipulation as well as optimisation of sets of such
+constraints. We anticipate the need for at least 3 kinds of
+assertions:
+\begin{inparaenum}[\it (i)]
+\item a standard linear constraint `$\vec{a} \cdot \vec{x} \op b$',
+  where $\vec{a}$ is a vector of reals, $\vec{x}$ is a vector of
+  variables, $\op$ is one of $\leq$, $\geq$ or $=$, $b$ is a real;
+\item a conditional assertion `if $\delta = v$, then $C$' asserting
+  that the constraint $C$ is only enforced when the value of an
+  integer-valued variable $\delta$ is $v$;
+\item a bound constraint `$l \leq x \leq u$' asserting that the value
+  of variable $x$ lies in the interval $[l,u]$ for $l\leq u$.
+\end{inparaenum}
+This language would be expressive enough so as to capture the
+evolution of an NS-MAS while being `interpretable', so as to allow
+optimisation.  For instance, assume that the translation from the
+input spec generates the following constraints for a binary variable
+$\delta$:
+\[
+  \begin{array}{l}
+    \text{if }\delta = 1\text{, then }x = 1\\
+    \text{if }\delta = 0\text{, then }x = 2
+  \end{array}
+\]
+Furthermore, assume that the bounds of $\delta$ are calculated to be
+$[1,1]$. In that case, the constraints can be simplified to $x=1$.
+
+% Similarly to Lens,
+Second, this intermediate language would be formulated as a dependent
+type. We then will devise a proof theory so that translating
+specifications to system evolutions encoded in the intermediate
+language would amount to type inference.
 
 \paragraph{WP3} (Paulo, Michael) We will extend VenMAS to take as
 input a declarative specification of an NS-MAS and a property, and
@@ -191,13 +226,31 @@ verify the NS-MAS against that property. To this end, we will
 implement a parser (T3.1 depends on WP1), and a translation from a
 specification to an intermediate representation (T3.2 depends on WP2).
 
-\paragraph{WP4} (Panagiotis, Elena) We will develop and implement a
-translation from an intermediate representation to a representation
-for a backend.
+\paragraph{WP4} (Panagiotis, Elena) This workpackage is mainly
+concerned with improving scalability of VenMAS. We will develop and
+implement a compilation of an intermediate representation to a problem
+that could be delegated to a backend. The existing backend of VenMAS
+is a MILP solver that decides whether a mixed-integer linear program
+is feasible (i.e., whether there is an assignment to the variables
+that satisfies all constraints). As a first step, we will extend
+VenMAS to include a compilation from an intermediate representation to
+a mixed-integer linear program, which would serve as a baseline.
 % a MILP feasibility problem
-This includes a novel translation from an intermediate representation
-to a neural network verification problem. This would enable the use of
-VNN solvers optimised for GPUs, which would improve scalability.
+Then, to explore the possibility of using a more efficient backend
+such as a neural network verifier optimised for GPU-based computation,
+we will develop and implement a novel compilation of an intermediate
+representation to a neural network verification problem.
+
+As an example, consider again the constraints
+
+\[
+  \begin{array}{l}
+    \text{if }\delta = 1\text{, then }x = 1\\
+    \text{if }\delta = 0\text{, then }x = 2
+  \end{array}
+\]
+
+This computation can be encoded as the following ReLU node:
 
 \paragraph{WP5} (Paulo, Michael, Panagiotis, Elena) Use-cases and evaluation 
 
