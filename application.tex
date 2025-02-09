@@ -42,12 +42,12 @@ We acknowledge the growing integration of increasingly
 powerful AI modules within complex networks of
 interconnected components. We consequently want to put
 forward formal methods for the principled analysis of
-neural-symbolic multi-agent systems comprising agents
+neural-symbolic Multi-Agent Systems (MAS) comprising agents
 equipped with neural network perception components and
 symbolic control units. We target in particular:
 \begin{itemize}
     \item  The definition of a programming language for
-        specifying multi-agent systems and  their
+        specifying MAS and  their
         properties. Special focus will be given in both the
         machine and human interpretability of the language.
         Additional emphasis will be given to 
@@ -132,25 +132,62 @@ margins~\cite{baninajjarvnn}.
 %* What capabilities or future work could it unlock?
 %* Why do you want to spend your time on this?
 
-\begin{itemize}
-\item Many modern complex systems involving AI-based components can be
-  modelled as neural-symbolic multi-agent systems.
+Forthcoming autonomous  agents are expected to incorporate
+neural networks in some of their components. Following the
+fragility and opaqueness of neural network models, rigorous
+verification and validation before deployment is essential
+in safety-critical applications, such as autonomous
+vehicles. This necessity becomes even more pressing with the
+growing interconnectivity of diverse agents, where complex
+agent-to-agent interactions can lead to unpredictable
+system-wide behaviours.
+
+While significant research has addressed the verification of
+symbolic MAS, there remains limited work on
+verifying systems with neural components. The current
+state-of-the-art tools,  such as {\sc
+VenMAS}~\cite{Akintunde+20}, albeit facilitating initial
+promising results, have two important shortcomings. Firstly,
+they require from the verification engineer to  hardcode the
+system specifications, which is time-consuming and
+error-prone task. Secondly, they cannot analyse
+industrial-scale systems because of their reliance to direct
+MILP encodings of the verification task. 
+
+The present project aims at overcoming these shortcomings.
+It firstly targets the development of a programming language
+for the specification of neural-symbolic MAS. The language
+is envisaged to provide a currently lacking standard for the
+formal analysis of neural-symbolic MAS. This is anticipated
+to facilitate the verification of real-world neural-symbolic
+multi-agent systems through the creation of declarative
+specifications. The project secondly targets the scalability
+of verification through the development of GPU-accelerated
+verification methods. Following the significant advances the
+GPU-accelerated neural network verification has recently
+witnessed, the scalability improvements for neural-symbolic
+MAS are also expected to be substantial.
+
+
+%\begin{itemize}
+%\item Many modern complex systems involving AI-based components can be
+  %modelled as neural-symbolic multi-agent systems.
   
-\item There is no standard specification language for verification of
-  neural-symbolic MAS.
+%\item There is no standard specification language for verification of
+  %neural-symbolic MAS.
 
-\item The existing tool VenMAS currently requires hardcoding the
-  systems specs, this is time-consuming and error-prone.
+%\item The existing tool VenMAS currently requires hardcoding the
+  %systems specs, this is time-consuming and error-prone.
 
-\item The existing tool VenMAS encodes the verification problem into
-  the MILP feasibility problem. The scalability is a problem.
+%\item The existing tool VenMAS encodes the verification problem into
+  %the MILP feasibility problem. The scalability is a problem.
 
-\item This would facilitate the verification of real-world
-  neural-symbolic multi-agent systems through the creation of
-  declarative specifications.
+%\item This would facilitate the verification of real-world
+  %neural-symbolic multi-agent systems through the creation of
+  %declarative specifications.
 
-\item Better scalability of verification of complex real-world systems.
-\end{itemize}
+%\item Better scalability of verification of complex real-world systems.
+%\end{itemize}
 
 
 \section{Why hasn't been done yet?}
