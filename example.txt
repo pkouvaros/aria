@@ -1,0 +1,83 @@
+agent Aircraft
+      record State : Set where
+      	     constructor state
+	     field
+		altitude: Q
+		climbrate: Q
+		advisory: N
+		agentN: N
+		
+      record Observation : Set where
+      	     constructor observe
+	     field
+		advisory: Advisory
+
+      record Action : Enum where
+      	     constructor action
+	     field
+		acceleration: Q
+
+
+      function observation : (Aircraft.State, Environment.State) -> Aircraft.Observation
+      	     nextObservation os es = observe newAdvisory
+	     where
+		newAdvisory = vcas(os.advisory,
+		                   es.altitude[os.agentN], es.altitude[1-os.agentN],
+				   es.climbrate[os.agentN], es.climbrate[1-os.agentN],
+				   es.timeToLossOfSeparation)
+
+
+      function protocol : Aircraft.State -> {Aircraft.Action}
+      	       availableActions s = {Aircraft.action act1, Aircraft.action act2}
+	       where
+			act1, act2 = (-3, 3) if s.advisory = COC
+			act1, act2 = (-9.33, -7.33) if s.advisory = DNC and s.climbrate <= 0
+			act1, act2 = (7.33, 9.33) if s.advisory = DND and s.climrate >= 0
+			act1, act2 = (-9.33, -7.33) if s.advisory = DES1500 and s.climbrate <= -1500
+			act1, act2 = (7.33, 9.33) if s.advisory = CL1500 and s.climbrate >= 1500
+			act1, act2 = (-11.7, -9.7) if s.advisory = SDES1500 and s.climbrate <= -1500
+			act1, act2 = (9.7, 11.7) if s.advisory = SCL1500 and s.climbrate >= 1500
+			act1, act2 = (-11.7, -9.7) if s.advisory = SDES2500 and s.climbrate <= -2500
+			act1, act2 = (9.7, 11.7) if s.advisory = SCL2500 and s.climbrate >= 2500
+			act1, act2 = (0, 0) else
+
+      function transition : Aircraft.State, Aircraft.Action, Aircraft.Action, VcasEnv.Action -> Aircraft.State
+      	       nextState s, ownact, intact, envact = Aircraft.state newAltitude newClimbrate s.advisory s.agentN
+	       where
+		newAltitude = s.altitude + s.climbrate + 0.5 ownact.acceleration
+		newClimbrate = s.climbrate + ownact.acceleration 
+
+
+###########################################################################
+record Advisory : Enum where
+    constructor advisory
+       COC: 0
+       DNC: 1
+       DND: 2
+       DES1500: 3
+       CL1500: 4
+       SDES1500: 5
+       SCL1500: 6
+       SDES2500: 7
+       SCL2500: 8
+
+###########################################################################
+function vcas : (Advisory, Q, Q, Q, Q, N) -> Advisory
+	output a hown hint clown clint tau = advisory newa
+	where
+		newa = NN[a.index](hown-hint, clown, clint, tau)
+
+
+###########################################################################
+function evolution : 
+
+	 # this is obviously not correct, but we would write something in this spirit
+	 finalState xs = foldr transition protocol observation ownInitialState intInitialState envInitState xs
+
+	 # observation(os, es) => changes own state os
+	 # protocol(os) = {a1, a2} returns the available actions
+	 # transition(os, oa, ia, ea) returns the new local state of the agent given the own action, intruder action and env aciton.
+
+	 # it is symmetric for the intruder
+
+	 # similar for the environment
