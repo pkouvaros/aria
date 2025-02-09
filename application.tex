@@ -37,61 +37,93 @@
 %assumptions of the Mathematics for Safe AI?
 %* What will be the output of your effort?
 
-We want to put forward formal methods for the principled
-analysis of multi-agent systems comprising agents equipped
-with neural network components. We target in particular (i)
-the derivation of formal semantics for neural-symbolic
-multi-agent systems, able to model the interactions of
-possibly unbounded collections of agents with neural and/or
-symbolic perception and control mechanisms, (ii) the
-construction of a specification language to express the
-properties of these systems, including properties pertaining
-to high-level attitudes of agency, such as epistemic and
-strategic properties, (iii) the computational complexity
-analysis of the semantics and specifications from (i) and
-(ii), (iv) the development of efficient
-optimisation-based verification methods, (v) the building of
-a verification tool that implements the methods from (iv)
-and supports a dedicated programming language bases on
-$\lambda$-calculus for the ({\bf insert here the
-characteristics of the language}) description of systems and
-correctness properties.
+
+We acknowledge the growing integration of increasingly
+powerful AI modules within complex networks of
+interconnected components. We consequently want to put
+forward formal methods for the principled analysis of
+neural-symbolic multi-agent systems comprising agents
+equipped with neural network perception components and
+symbolic control units. We target in particular:
+\begin{itemize}
+    \item  The definition of a programming language for
+        specifying multi-agent systems and  their
+        properties. Special focus will be given in both the
+        machine and human interpretability of the language.
+        Additional emphasis will be given to 
+        its adequacy in expressing complex agent to
+        agent interactions and high level attitudes of
+        agency, such as epistemic and strategic properties.
+    \item The development of  verification
+        methodologies for assessing the compliance of
+        systems  to correctness properties expressed via
+        said specification language. Particular focus will
+        be placed on the scalability of the methods through
+        the utilisation of advances in
+        Mixed-Integer-Linear-Programming (MILP) and
+        GPU-accelerated branch-and-bound-based neural
+        network verification.
+\end{itemize}
+
+%the derivation of formal semantics for neural-symbolic
+%multi-agent systems, able to model the interactions of
+%possibly unbounded collections of agents with neural and/or
+%symbolic perception and control mechanisms, (ii) the
+%construction of a specification language to express the
+%properties of these systems, including properties pertaining
+%to high-level attitudes of agency, such as epistemic and
+%strategic properties, (iii) the computational complexity
+%analysis of the semantics and specifications from (i) and
+%(ii), (iv) the development of efficient
+%optimisation-based verification methods, (v) the building of
+%a verification tool that implements the methods from (iv)
+%and supports a dedicated programming language bases on
+%$\lambda$-calculus for the ({\bf insert here the
+%characteristics of the language}) description of systems and
+%correctness properties.
 
 Our goals are fully aligned with the Mathematics for Safe AI
-assumptions.  They recognise the increasing integration of
-AI modules within networks of interconnected components and
-provide methods for analysing their safety.  The methods are
-formal and  can thus identify errors outside of testing
-scenarios, as opposed to testing, where the safety of
-systems can only be ascertained within testing scenarios.
+assumptions.  They recognise the transition to a
+socio-techno-economic world with a high degree of AI-based
+interconnectivity, which demands a paradigm shift from object-
+oriented to interaction-oriented analysis standards. In
+these settings of enhanced runtime unpredictability, they
+account for the limitations of testing (where safety can be
+ascertained only within testing scenarios) through the
+development of formal methods (which can identify errors
+outside of testing scenarios). 
 
-Towards the development of the methods, we acknowledge the
-challenges pertaining to the extension of formal methods to account
-for neural-symbolic systems. Firstly, verification of
-unbounded safety properties for neural systems is
-undecidable. Secondly, verification of unbounded systems,
-comprising arbitrarily many components is also undecidable.
-Thirdly, verification of isolated neural network components
-is NP-complete. In tandem with these negative results, we
-aim to shed light on classes of systems can be effectively
-verified, thereby providing design guidelines for verifiable
-AI. For instance, verification for standalone neural
-networks is hindered by big weighted sums and non-linear
-activation functions that in practice can often be
-simplified at no or little performance drops. 
+Our implementation plan  places significant consideration to
+the challenges  pertaining to the extension of formal
+methods, which have been successful in the analysis of
+traditional systems, to account for neural-symbolic systems.
+Firstly, verification of unbounded safety properties for
+neural systems is undecidable~\cite{Akintunde+20}. Secondly,
+verification of standalone neural network components is
+NP-complete~\cite{Katz+17}. In tandem with these negative
+results, and in addition to the main output of the project
+(the specification language and the verification
+techniques), we aim to shed light on classes of systems that
+can be effectively verified, thereby providing design
+guidelines for verifiable AI. This ambition is inspired by
+recent results in neural network verification where
+alternative, verification-friendly networks are derived
+that  remain within acceptable performance
+margins~\cite{baninajjarvnn}.
 
-\begin{itemize}
-\item Put forward formal methods for the principled analysis of
-  multi-agent systems comprising agents equipped with neural network
-  components.
+
+%\begin{itemize}
+%\item Put forward formal methods for the principled analysis of
+  %multi-agent systems comprising agents equipped with neural network
+  %components.
   
-\item Design a (low-level, machine and human readable) specification
-  language for describing neural-symbolic multi-agent systems and the
-  properties they should satisfy.
+%\item Design a (low-level, machine and human readable) specification
+  %language for describing neural-symbolic multi-agent systems and the
+  %properties they should satisfy.
 
-\item Develop general purpose techniques for efficient verification of
-  NS-MAS using automated theorem provers.
-\end{itemize}
+%\item Develop general purpose techniques for efficient verification of
+  %NS-MAS using automated theorem provers.
+%\end{itemize}
 
 \section{Why is it of scientific or technological importance?}
 
