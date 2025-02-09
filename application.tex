@@ -171,18 +171,20 @@ multi-agent systems and the properties about their temporal evolution.
 
 LanguagENeuralSystems
 
-\paragraph{WP1} (Paulo, Michael, Marco) We will design a programming
-language based on Vehicle, Moxi and ISPL for specifying neural MAS and
-their properties, guided by the following desiderata:
-\begin{itemize}
-\item the syntax should be human and machine readable.  
-\item the language should be based on a typed lambda-calculus language.
-\item the language should be easily extendable to allow specification
-  of various properties such as temporal logic, epistemic logic,
-  strategic properties, etc.
-\item the language should not be tightly coupled to a particular
-  formalisation of a neural-symbolic system.
-\end{itemize}
+\paragraph{WP1} (Paulo, Michael, Marco)
+We will design a programming language based on Vehicle, MoXI, and ISPL for
+specifying neural Multi-Agent Systems (MAS) and their properties, guided by the
+following desiderata: the syntax should be human and machine-readable, the
+language should be based on solid categorical foundations, and it should be
+easily extendable to specify various properties such as temporal logic,
+epistemic logic, and strategic properties. Additionally, the language should not
+be tightly coupled to any specific formalization of a neural-symbolic system. We
+will design this language using Turi and Plotkin's framework bialgebra
+framework~\cite{TuriP97}, which provides a robust foundation for defining and
+reasoning about probabilistic transition systems~\cite{LanotteT09}. This
+framework enables modular composition of agents and subsystems, facilitating
+probabilistic verification and ensuring that complex, probabilistic MAS can be
+reasoned about and verified in a scalable, formal manner.
 
 \paragraph{WP2} (Elena, Panagiotis, Marco) First, we will design an
 abstract intermediate language for capturing the evolution of an
