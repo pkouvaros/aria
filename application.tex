@@ -201,29 +201,79 @@ MAS are also expected to be substantial.
 %what’s being funded or developed elsewhere?
 
 
-Neural-symbolic MAS are a relatively novel type of systems. Initial
-work \cite{Akintunde+18,Akintunde+20,Akintunde+22} interprets
-neural-symbolic MAS as Neural Interpreted Systems. In
-\cite{KouvarosBB24}, we consider parameterised MAS, where the number
-of agents is not fixed.
+The present project extends formal verification approaches
+for symbolic multi-agent systems, where the compliance of
+compositions of agents to properties expressed in rich modal
+logics is ascertained. The extension concerns the reasoning
+about agents equipped with neural components. Since the
+latter are real-valued functions, traditional verification
+methods, which typically require the description of systems
+as finite-state automata, are not readily applicable to
+verify neural-symbolic MAS. Indeed, the formal analysis of
+neural components requires novel optimisation-based methods,
+whose development began since 2017~\cite{Katz+17}. A key
+hurtle in the area is scalability, where verification times
+grow exponentially in the size of the networks to check. The
+derivation of dedicated branch-and-bound frameworks with
+full amenability to GPU-acceleration has arguably been the
+most important advance in improving the scalability of
+verification~\cite{}. 
 
-VenMAS \cite{Akintunde+22b} is a research prototype that verifies
-neural-symbolic multi-agent systems by a reduction to the feasibility
-problem of a mixed-integer linear program.  Currently, to verify such
-a system against bounded temporal logic properties in VenMAS, the user
-has to hardcode programmatically the system specification and the
-temporal property.
-
-There exist proper specification languages, such as Moxi for symbolic model
-checking of finite- and infinite-state systems against temporal logic
+However, these advances have almost entirely focused on
+standalone neural networks with limited research realised
+for composite systems.  Initial work in the area interprets
+neural-symbolic MAS as Neural Interpreted Systems and puts
+forward {\sc VenMAS}, a research prototype for their
+verification via reductions to the feasibility problem of
+MILP~\cite{Akintunde+18,Akintunde+20,Akintunde+22,KouvarosBB24}.
+These approaches have two significant shortcomings. Firstly,
+their performance entirely relies on external MILP solvers
+without utilising advances in neural network verification.
+Since, in particular, since state-of-the-art MILP solvers do
+not support GPU-based acceleration, the scalability of the
+methods is limited to only toy academic examples. This
+project aims to overcome this shortcoming by recasting the
+verification problem for neural-symbolic MAS into
+compositions of standard neural network verification
+problems. Secondly, the present state-of-the-art toolkit
+requires from the research engineers  to programmatically
+hardcode the system and property specifications to analyse,
+thereby significantly complicating the verification process.
+This project targets the alleviation of this shortcoming by
+putting forward a dedicated specification language for
+neural-symbolic MAS.  This will be based on existing
+languages, such as Moxi for symbolic model checking of
+finite- and infinite-state systems against temporal logic
 properties~\cite{Rozier+2024}, ISPL (the interpreted systems
-programming language) for purely symbolic multi-agent systems and
-their verification properties in temporal logics~\cite{LomuscioQR17},
-CyPhyML for cyber-physical systems~\cite{Simko+13}, and Vehicle for
-verification of neural-symbolic programs against expressive properties
-in dependently typed lambda-calculus \cite{Daggitt+24}. However, none
-of these languages is fully equipped to describe neural-symbolic
-multi-agent systems and the properties about their temporal evolution.
+programming language) for purely symbolic multi-agent
+systems~\cite{LomuscioQR17}, CyPhyML for cyber-physical
+systems~\cite{Simko+13}, and Vehicle for verification of
+neural-symbolic programs against expressive properties in
+dependently typed lambda-calculus \cite{Daggitt+24}. The
+language will advance the cited ones by fully supporting
+neural-symbolic MAS and the properties, which support is
+currently lacking.
+
+
+
+
+%VenMAS \cite{Akintunde+22b} is a research prototype that verifies
+%neural-symbolic multi-agent systems by a reduction to the feasibility
+%problem of a mixed-integer linear program.  Currently, to verify such
+%a system against bounded temporal logic properties in VenMAS, the user
+%has to hardcode programmatically the system specification and the
+%temporal property.
+
+%There exist proper specification languages, such as Moxi for symbolic model
+%checking of finite- and infinite-state systems against temporal logic
+%properties~\cite{Rozier+2024}, ISPL (the interpreted systems
+%programming language) for purely symbolic multi-agent systems and
+%their verification properties in temporal logics~\cite{LomuscioQR17},
+%CyPhyML for cyber-physical systems~\cite{Simko+13}, and Vehicle for
+%verification of neural-symbolic programs against expressive properties
+%in dependently typed lambda-calculus \cite{Daggitt+24}. However, none
+%of these languages is fully equipped to describe neural-symbolic
+%multi-agent systems and the properties about their temporal evolution.
 
 
 \section{How do you plan to make it happen?}
