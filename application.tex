@@ -212,12 +212,12 @@ as finite-state automata, are not readily applicable to
 verify neural-symbolic MAS. Indeed, the formal analysis of
 neural components requires novel optimisation-based methods,
 whose development began since 2017~\cite{Katz+17}. A key
-hurtle in the area is scalability, where verification times
+hurdle in the area is scalability, where verification times
 grow exponentially in the size of the networks to check. The
 derivation of dedicated branch-and-bound frameworks with
 full amenability to GPU-acceleration has arguably been the
 most important advance in improving the scalability of
-verification~\cite{}. 
+verification~\cite{Wang+21,FerrariMJV22}. 
 
 However, these advances have almost entirely focused on
 standalone neural networks with limited research realised
@@ -229,7 +229,7 @@ MILP~\cite{Akintunde+18,Akintunde+20,Akintunde+22,KouvarosBB24}.
 These approaches have two significant shortcomings. Firstly,
 their performance entirely relies on external MILP solvers
 without utilising advances in neural network verification.
-Since, in particular, since state-of-the-art MILP solvers do
+Since, in particular, state-of-the-art MILP solvers do
 not support GPU-based acceleration, the scalability of the
 methods is limited to only toy academic examples. This
 project aims to overcome this shortcoming by recasting the
@@ -251,7 +251,7 @@ systems~\cite{Simko+13}, and Vehicle for verification of
 neural-symbolic programs against expressive properties in
 dependently typed lambda-calculus \cite{Daggitt+24}. The
 language will advance the cited ones by fully supporting
-neural-symbolic MAS and the properties, which support is
+neural-symbolic MAS and their properties, which support is
 currently lacking.
 
 
