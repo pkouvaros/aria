@@ -151,7 +151,7 @@ state-of-the-art tools,  such as {\sc
 VenMAS}~\cite{Akintunde+20}, albeit facilitating initial
 promising results, have two important shortcomings. Firstly,
 they require from the verification engineer to  hardcode the
-system specifications, which is time-consuming and
+system specifications, which is a time-consuming and
 error-prone task. Secondly, they cannot analyse
 industrial-scale systems because of their reliance to direct
 MILP encodings of the verification task. 
@@ -165,9 +165,9 @@ to facilitate the verification of real-world neural-symbolic
 multi-agent systems through the creation of declarative
 specifications. The project secondly targets the scalability
 of verification through the development of GPU-accelerated
-verification methods. Following the significant advances the
-GPU-accelerated neural network verification has recently
-witnessed, the scalability improvements for neural-symbolic
+verification methods. Following significant advances in
+GPU-accelerated neural network verification methods, 
+the scalability improvements for neural-symbolic
 MAS are also expected to be substantial.
 
 
@@ -192,7 +192,7 @@ MAS are also expected to be substantial.
 %\end{itemize}
 
 
-\section{Why hasn't been done yet?}
+\section{Why hasn't it been done yet?}
 
 %* Have recent developments only now made it possible?
 %* Has the research community overlooked it? Perhaps no one
@@ -212,12 +212,12 @@ as finite-state automata, are not readily applicable to
 verify neural-symbolic MAS. Indeed, the formal analysis of
 neural components requires novel optimisation-based methods,
 whose development began since 2017~\cite{Katz+17}. A key
-hurtle in the area is scalability, where verification times
+hurdle in the area is scalability, where verification times
 grow exponentially in the size of the networks to check. The
 derivation of dedicated branch-and-bound frameworks with
-full amenability to GPU-acceleration has arguably been the
+full amenability to GPU-based-acceleration has arguably been the
 most important advance in improving the scalability of
-verification~\cite{}. 
+verification~\cite{Zhang+22a}. 
 
 However, these advances have almost entirely focused on
 standalone neural networks with limited research realised
@@ -236,7 +236,7 @@ project aims to overcome this shortcoming by recasting the
 verification problem for neural-symbolic MAS into
 compositions of standard neural network verification
 problems. Secondly, the present state-of-the-art toolkit
-requires from the research engineers  to programmatically
+requires  research engineers  to programmatically
 hardcode the system and property specifications to analyse,
 thereby significantly complicating the verification process.
 This project targets the alleviation of this shortcoming by
