@@ -1,0 +1,13 @@
+  Name , Time , Role , University ,Labour,,Expertise
+  Elena Botoeva ,50%, Project lead , University of Kent ,36178.64,,"Verification of neural-symbolic multi-agent systems, Verification of Neural Networks"
+  Panagiotis Kouvaros ,60%, Key researcher , University of Limassol ,25200,,"Verification of symbolic and neural-symbolic multi-agent systems, Verification of Neural Networks"
+  Michael Akintunde ,30%, Co-investigator , City University of London ,19524.98,,Verification of neural-symbolic multi-agent systems
+  Marco Paviotti ,20%, Co-investigator  , University of Kent ,14471.46,,"Programming Languages, Type theory, Category Theory"
+  Paulo Torrens ,100%, Researcher       , University of Kent ,54112.38,,"Theorem proving, Functional Programming"
+,,,,,,
+,,,,,,
+,,,,,,
+,Labour	,Equipment and Facilities	,Travel	,Other	,Indirect Costs	,
+University of Kent,104762.48,13000,14000,30585.06,133727.85,
+City University of London,19524.98,,5000,5761.64,17637.25,
+University of Limassol,25200,,6000,,1200,
