@@ -1,5 +1,9 @@
 Why is ARIA funding essential for the success of the project?
 
+Our project is very ambitious in that we aiming to make significant advances in scalability of verification of neural-symbolic multi-agent systems, which is currently limited to toy academic examples.
+
+The topic of our project is closely aligned with the Safe AI them.
+
 Panagiotis Kouvaros, one of the key researchers is based in Cyprus. There are limited options for getting a joint funding between the UK and Cyprus. This ARIA funding is essential to making this work happen.
 
 
@@ -7,4 +11,4 @@ What key milestones will mark your proposed projects progress?
 
 M1: The programming language, the intermediate language and the translation from the former to the latter.
 
-M2: A working end-to-end NS-MAS verification tool with a MILP backend. 
+M2: A working end-to-end NS-MAS verification tool with a GPU-accelerable NN verifier backend. 
