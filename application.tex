@@ -41,8 +41,7 @@
 We acknowledge the growing integration of increasingly powerful AI modules
 within complex networks of interconnected components. We consequently want to
 put forward formal methods for the principled analysis of neural-symbolic
-Multi-Agent Systems (MAS) comprising agents equipped with neural network
-perception components and symbolic control units. We target in particular:
+Multi-Agent Systems (MAS) comprising agents equipped with neural network (NN)-based perception components and symbolic control units. We target in particular:
 \begin{itemize}
     \item  The definition of a programming language with formal semantics for
 specifying MAS and their properties. Special focus will be given in both the
@@ -56,7 +55,7 @@ compliance of systems  to correctness properties expressed via said
 specification language. Particular focus will be placed on the scalability of
 the methods through the utilisation of advances in
 Mixed-Integer-Linear-Programming (MILP) and GPU-accelerated
-branch-and-bound-based neural network verification.
+branch-and-bound-based neural network verification techniques.
 \end{itemize}
 
 
@@ -94,7 +93,7 @@ results, and in addition to the main output of the project (the specification
 language and the verification techniques), we aim to shed light on classes of
 systems that can be effectively verified, thereby providing design guidelines
 for verifiable AI. This ambition is inspired by recent results in neural network
-verification where alternative, verification-friendly networks are derived that
+verification where alternative, verification-friendly neural networks are derived that
 remain within acceptable performance margins~\cite{baninajjarvnn}.
 
 
@@ -134,10 +133,10 @@ verifying systems with neural components. The current
 state-of-the-art tools,  such as {\sc
 VenMAS}~\cite{Akintunde+20}, albeit facilitating initial
 promising results, have two important shortcomings. Firstly,
-they require from the verification engineer to  hardcode the
+they require the verification engineer to  hardcode the
 system specifications, which is a time-consuming and
 error-prone task. Secondly, they cannot analyse
-industrial-scale systems because of their reliance to direct
+industrial-scale systems because of their reliance on direct
 MILP encodings of the verification task. 
 
 The present project aims at overcoming these shortcomings.
@@ -197,7 +196,7 @@ verify neural-symbolic MAS. Indeed, the formal analysis of
 neural components requires novel optimisation-based methods,
 whose development began since 2017~\cite{Katz+17}. A key
 hurdle in the area is scalability, where verification times
-grow exponentially in the size of the networks to check. The
+grow exponentially in the size of the neural networks to check. The
 derivation of dedicated branch-and-bound frameworks with
 full amenability to GPU-based-acceleration has arguably been the
 most important advance in improving the scalability of
@@ -233,9 +232,9 @@ programming language) for purely symbolic multi-agent
 systems~\cite{LomuscioQR17}, CyPhyML for cyber-physical
 systems~\cite{Simko+13}, and Vehicle for verification of
 neural-symbolic programs against expressive properties in
-dependently typed lambda-calculus \cite{Daggitt+24}. The
-language will advance the cited ones by fully supporting
-neural-symbolic MAS and their properties, which support is
+dependently typed lambda-calculus \cite{Daggitt+24}. Our
+language will advance the aforementioned by fully supporting
+neural-symbolic MAS and their properties, of which  support is
 currently lacking.
 
 %VenMAS \cite{Akintunde+22b} is a research prototype that verifies
@@ -277,15 +276,14 @@ We will design a programming language based on Vehicle, MoXI, and ISPL for
 specifying neural Multi-Agent Systems (MAS) and their properties, guided by the
 following desiderata: the syntax should human and machine-readable, the language
 should be based on solid categorical foundations, and it should be easily
-extendible to specify various properties such as temporal logic, epistemic
-logic, and strategic properties. Additionally, the language should not be
+extendible to specify various properties such as those expressed using temporal logic, epistemic
+logic, as well as supporting properties for specifying properties for  strategic ability. Additionally, the language should not be
 tightly coupled to any specific formalization of a neural-symbolic system.  We
 will use notions from category theory to model agents as processes and
-transitions systems as coalgebras~\cite{Rutten00}, and structure our
-semantics Turi and Plotkin's distributive laws~\cite{TuriP97}, which provide a
+transition systems as coalgebras~\cite{Rutten00}, and structure our
+semantics around Turi and Plotkin's distributive laws~\cite{TuriP97}, which provide a
 robust categorical foundation for obtaining off-the-shelf compositionality
-results. Recently, this has been extended to cover higher order languages like
-the $\lambda$-calculus as well~\cite{GoncharovMSTU23}. This framework enables
+results. Recently, this has also been extended to cover higher order languages such as $\lambda$-calculus~\cite{GoncharovMSTU23}. This framework enables
 modular reasoning about subsystems by ensuring bisimulations are congruences,
 facilitating verification and ensuring that complex MAS can be reasoned about
 and verified in a scalable, formal manner.
@@ -423,8 +421,8 @@ team) to work on it?}
 Our team is uniquely placed to have the right expertise for this
 project. Michael, Elena and Panagiotis have introduced neural-symbolic
 multi-agent systems based on the Interpreted Systems semantics, and
-published the VenMAS tool for verification of those against bounded
-CTL and ATL properties.  Both Michael and Elena worked on the
+published the VenMAS tool for verification of such systems against bounded
+CTL and ATL$^*$ properties.  Both Michael and Elena worked on the
 implementation of VenMAS and a number of use-cases which have been
 verified using VenMAS.  Panagiotis is an expert of symbolic MAS,
 including parameterised systems where the exact number of the agents
