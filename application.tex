@@ -4,10 +4,11 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{color}
-\usepackage[margin=0.8in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{url}
 \usepackage{paralist}
 \usepackage{tikz}
+\usepackage{pgfgantt}
 
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
@@ -65,6 +66,8 @@ symbolic control units. We target in particular:
         network verification.
 \end{itemize}
 
+
+
 %the derivation of formal semantics for neural-symbolic
 %multi-agent systems, able to model the interactions of
 %possibly unbounded collections of agents with neural and/or
@@ -85,8 +88,8 @@ symbolic control units. We target in particular:
 Our goals are fully aligned with the Mathematics for Safe AI
 assumptions.  They recognise the transition to a
 socio-techno-economic world with a high degree of AI-based
-interconnectivity, which demands a paradigm shift from object-
-oriented to interaction-oriented analysis standards. In
+interconnectivity, which demands a paradigm shift from object-oriented
+to interaction-oriented analysis standards. In
 these settings of enhanced runtime unpredictability, they
 account for the limitations of testing (where safety can be
 ascertained only within testing scenarios) through the
@@ -137,7 +140,7 @@ neural networks in some of their components. Following the
 fragility and opaqueness of neural network models, rigorous
 verification and validation before deployment is essential
 in safety-critical applications, such as autonomous
-vehicles. This necessity becomes even more pressing with the
+vehicles \cite{Badue+21}. This necessity becomes even more pressing with the
 growing interconnectivity of diverse agents, where complex
 agent-to-agent interactions can lead to unpredictable
 system-wide behaviours.
@@ -329,15 +332,53 @@ represent as a NN verification problem.
 
 \paragraph{WP5} (Paulo, Michael, Panagiotis, Elena) Use-cases and evaluation 
 
+% \begin{center}
+%   \begin{tabular}{ccccccccccccc}
+%     & 1 & 2 & 3& 4& 5 & 6 &7 &8& 9&10&11&12\\
+%     WP1& x & x & x \\
+%     WP2&   & x & x & x & x &   & \\
+%     WP3&   &   &   & x & x & x & x & x & \\
+%     WP4&   &   &   &   &   &   & x & x & x & x & x &   \\
+%     WP5&   &   &   &   &   &   &   &   &   & x & x & x \\
+%   \end{tabular}
+% \end{center}
+
 \begin{center}
-  \begin{tabular}{ccccccccccccc}
-    & 1 & 2 & 3& 4& 5 & 6 &7 &8& 9&10&11&12\\
-    WP1& x & x & x \\
-    WP2&   & x & x & x & x &   & \\
-    WP3&   &   &   & x & x & x & x & x & \\
-    WP4&   &   &   &   &   &   & x & x & x & x & x &   \\
-    WP5&   &   &   &   &   &   &   &   &   & x & x & x \\
-  \end{tabular}
+  \scalebox{1}{\begin{ganttchart}[
+      vgrid={*5{white}, *1{gray, dotted}},
+      x unit=0.5cm,
+      y unit title=0.5cm,
+      y unit chart=0.6cm,
+      milestone/.append style={fill=gray},
+      milestone label font=\footnotesize,
+      group label font=\small\bfseries,
+      group top shift=0.3,
+      group height=.3,
+      group peaks tip position=0,
+      group peaks height=.3,
+      group peaks width=0.3,
+      % group peaks fill=gray!50,
+      group left shift=0,
+      % time slot format=isodate-yearmonth,
+      % compress calendar,
+      bar incomplete/.append style={fill=red!50},
+      bar/.append style={pattern={crosshatch dots}},
+      bar height=0.5,
+      progress label text=%,
+      % title/.append style=%
+      % {bottom color=gray, top color=gray!10, draw=gray!10}
+      ]
+      {1}{12}
+
+      \gantttitlelist[title/.style={fill=gray!20, draw=gray}]{1,2,...,12}{1}\\
+      \ganttgroup{WP1: Programming Language}{1}{3} \\
+      \ganttgroup{WP2: Intermediate Language}{2}{5} \\
+      \ganttmilestone{M1}{5}\\
+      \ganttgroup{WP3: Implementation}{4}{8}\\ 
+      \ganttgroup{WP4: Scalability}{7}{11}\\ 
+      \ganttmilestone{M2}{9}\\
+      \ganttgroup{WP5: Evaluation}{10}{12}%\\ 
+    \end{ganttchart}}
 \end{center}
 
 \section{Why are you the right person (or
