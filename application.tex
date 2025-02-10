@@ -38,33 +38,26 @@
 %* What will be the output of your effort?
 
 
-We acknowledge the growing integration of increasingly
-powerful AI modules within complex networks of
-interconnected components. We consequently want to put
-forward formal methods for the principled analysis of
-neural-symbolic Multi-Agent Systems (MAS) comprising agents
-equipped with neural network perception components and
-symbolic control units. We target in particular:
+We acknowledge the growing integration of increasingly powerful AI modules
+within complex networks of interconnected components. We consequently want to
+put forward formal methods for the principled analysis of neural-symbolic
+Multi-Agent Systems (MAS) comprising agents equipped with neural network
+perception components and symbolic control units. We target in particular:
 \begin{itemize}
-    \item  The definition of a programming language for
-        specifying MAS and  their
-        properties. Special focus will be given in both the
-        machine and human interpretability of the language.
-        Additional emphasis will be given to 
-        its adequacy in expressing complex agent to
-        agent interactions and high level attitudes of
-        agency, such as epistemic and strategic properties.
-    \item The development of  verification
-        methodologies for assessing the compliance of
-        systems  to correctness properties expressed via
-        said specification language. Particular focus will
-        be placed on the scalability of the methods through
-        the utilisation of advances in
-        Mixed-Integer-Linear-Programming (MILP) and
-        GPU-accelerated branch-and-bound-based neural
-        network verification.
+    \item  The definition of a programming language with formal semantics for
+specifying MAS and their properties. Special focus will be given in both the
+machine and human interpretability of the language.  We will design this
+language using results from category theory and logic to ensure reasoning is
+compositional.  Additional emphasis will be given to  its adequacy in expressing
+complex agent to agent interactions and high level attitudes of agency, such as
+epistemic and strategic properties.
+    \item The development of  verification methodologies for assessing the
+compliance of systems  to correctness properties expressed via said
+specification language. Particular focus will be placed on the scalability of
+the methods through the utilisation of advances in
+Mixed-Integer-Linear-Programming (MILP) and GPU-accelerated
+branch-and-bound-based neural network verification.
 \end{itemize}
-
 
 
 %the derivation of formal semantics for neural-symbolic
@@ -84,34 +77,25 @@ symbolic control units. We target in particular:
 %characteristics of the language}) description of systems and
 %correctness properties.
 
-Our goals are fully aligned with the Mathematics for Safe AI
-assumptions.  They recognise the transition to a
-socio-techno-economic world with a high degree of AI-based
-interconnectivity, which demands a paradigm shift from object-oriented
-to interaction-oriented analysis standards. In
-these settings of enhanced runtime unpredictability, they
-account for the limitations of testing (where safety can be
-ascertained only within testing scenarios) through the
-development of formal methods (which can identify errors
-outside of testing scenarios). 
+The transition to a socio-techno-economic world with a high degree of AI-based
+interconnectivity demands a paradigm shift from object-oriented to
+interaction-oriented analysis standards. In these settings of enhanced runtime
+unpredictability, they account for the limitations of testing (where safety can
+be ascertained only within testing scenarios) through the development of formal
+methods (which can identify errors outside of testing scenarios).
 
-Our implementation plan  places significant consideration to
-the challenges  pertaining to the extension of formal
-methods, which have been successful in the analysis of
-traditional systems, to account for neural-symbolic systems.
-Firstly, verification of unbounded safety properties for
-neural systems is undecidable~\cite{Akintunde+20}. Secondly,
-verification of standalone neural network components is
-NP-complete~\cite{Katz+17}. In tandem with these negative
-results, and in addition to the main output of the project
-(the specification language and the verification
-techniques), we aim to shed light on classes of systems that
-can be effectively verified, thereby providing design
-guidelines for verifiable AI. This ambition is inspired by
-recent results in neural network verification where
-alternative, verification-friendly networks are derived
-that  remain within acceptable performance
-margins~\cite{baninajjarvnn}.
+Our implementation plan  places significant consideration to the challenges
+pertaining to the extension of formal methods, which have been successful in the
+analysis of traditional systems, to account for neural-symbolic systems.
+Firstly, verification of unbounded safety properties for neural systems is
+undecidable~\cite{Akintunde+20}. Secondly, verification of standalone neural
+network components is NP-complete~\cite{Katz+17}. In tandem with these negative
+results, and in addition to the main output of the project (the specification
+language and the verification techniques), we aim to shed light on classes of
+systems that can be effectively verified, thereby providing design guidelines
+for verifiable AI. This ambition is inspired by recent results in neural network
+verification where alternative, verification-friendly networks are derived that
+remain within acceptable performance margins~\cite{baninajjarvnn}.
 
 
 %\begin{itemize}
@@ -134,7 +118,7 @@ margins~\cite{baninajjarvnn}.
 %* What capabilities or future work could it unlock?
 %* Why do you want to spend your time on this?
 
-Forthcoming autonomous  agents are expected to incorporate
+Forthcoming autonomous agents are expected to incorporate
 neural networks in some of their components. Following the
 fragility and opaqueness of neural network models, rigorous
 verification and validation before deployment is essential
@@ -217,7 +201,7 @@ grow exponentially in the size of the networks to check. The
 derivation of dedicated branch-and-bound frameworks with
 full amenability to GPU-based-acceleration has arguably been the
 most important advance in improving the scalability of
-verification~\cite{Zhang+22a}. 
+verification~\cite{Zhang+22a,Wang+21,FerrariMJV22}. 
 
 However, these advances have almost entirely focused on
 standalone neural networks with limited research realised
@@ -229,7 +213,7 @@ MILP~\cite{Akintunde+18,Akintunde+20,Akintunde+22,KouvarosBB24}.
 These approaches have two significant shortcomings. Firstly,
 their performance entirely relies on external MILP solvers
 without utilising advances in neural network verification.
-Since, in particular, since state-of-the-art MILP solvers do
+Since, in particular, state-of-the-art MILP solvers do
 not support GPU-based acceleration, the scalability of the
 methods is limited to only toy academic examples. This
 project aims to overcome this shortcoming by recasting the
@@ -251,11 +235,8 @@ systems~\cite{Simko+13}, and Vehicle for verification of
 neural-symbolic programs against expressive properties in
 dependently typed lambda-calculus \cite{Daggitt+24}. The
 language will advance the cited ones by fully supporting
-neural-symbolic MAS and the properties, which support is
+neural-symbolic MAS and their properties, which support is
 currently lacking.
-
-
-
 
 %VenMAS \cite{Akintunde+22b} is a research prototype that verifies
 %neural-symbolic multi-agent systems by a reduction to the feasibility
@@ -298,18 +279,18 @@ following desiderata: the syntax should human and machine-readable, the language
 should be based on solid categorical foundations, and it should be easily
 extendible to specify various properties such as temporal logic, epistemic
 logic, and strategic properties. Additionally, the language should not be
-tightly coupled to any specific formalization of a neural-symbolic system. We
-will design this language using Turi and Plotkin's structural operational
-semantics ~\cite{TuriP97}, which provides a robust categorical foundation for
-obtaining off-the-shelf compositionality results. Recently, this has been
-extended to cover higher order languages like the $\lambda$-calculus as
-well~\cite{GoncharovMSTU23}. This framework enables modular reasoning about
-subsystems by ensuring bisimulations are congruences, facilitating verification
-and ensuring that complex MAS can be reasoned about and verified in a scalable,
-formal manner.
+tightly coupled to any specific formalization of a neural-symbolic system.  We
+will use notions from category theory to model agents as processes and
+transitions systems as coalgebras~\cite{Rutten00}, and structure our
+semantics Turi and Plotkin's distributive laws~\cite{TuriP97}, which provide a
+robust categorical foundation for obtaining off-the-shelf compositionality
+results. Recently, this has been extended to cover higher order languages like
+the $\lambda$-calculus as well~\cite{GoncharovMSTU23}. This framework enables
+modular reasoning about subsystems by ensuring bisimulations are congruences,
+facilitating verification and ensuring that complex MAS can be reasoned about
+and verified in a scalable, formal manner.
 
-
-\paragraph{WP2} (Elena, Panagiotis, Marco) First, we will design an
+\paragraph{WP2} (Elena, Panagiotis, Marco) We will design an
 abstract intermediate language for capturing the evolution of an
 NS-MAS. This will be an internal representation and an abstraction of
 the language of mixed-integer linear constraints that would allow us
@@ -460,7 +441,7 @@ and Agda.
 
 Paulo Torrens, the named Research Associate (RA) for this project, is completing
 his PhD under Dominic Orchard's supervision as part of the Granule team. His research centers
-on theorem proving and CPS-calculus, and he also has a prove expertise with
+on theorem proving and CPS-calculus, and he also has proven expertise with
 proof assistants and functional programming along with a basic understanding of
 category theory.
 
