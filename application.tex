@@ -44,11 +44,13 @@ put forward formal methods for the principled analysis of neural-symbolic
 Multi-Agent Systems (MAS) comprising agents equipped with neural network
 perception components and symbolic control units. We target in particular:
 \begin{itemize}
-    \item  The definition of a programming language with formal semantics for specifying MAS and
-their properties. Special focus will be given in both the machine and human
-interpretability of the language.  Additional emphasis will be given to  its
-adequacy in expressing complex agent to agent interactions and high level
-attitudes of agency, such as epistemic and strategic properties.
+    \item  The definition of a programming language with formal semantics for
+specifying MAS and their properties. Special focus will be given in both the
+machine and human interpretability of the language.  We will design this
+language using results from category theory and logic to ensure reasoning is
+compositional.  Additional emphasis will be given to  its adequacy in expressing
+complex agent to agent interactions and high level attitudes of agency, such as
+epistemic and strategic properties.
     \item The development of  verification methodologies for assessing the
 compliance of systems  to correctness properties expressed via said
 specification language. Particular focus will be placed on the scalability of
@@ -56,7 +58,6 @@ the methods through the utilisation of advances in
 Mixed-Integer-Linear-Programming (MILP) and GPU-accelerated
 branch-and-bound-based neural network verification.
 \end{itemize}
-
 
 
 %the derivation of formal semantics for neural-symbolic
@@ -76,25 +77,12 @@ branch-and-bound-based neural network verification.
 %characteristics of the language}) description of systems and
 %correctness properties.
 
-<<<<<<< HEAD
-Our goals are fully aligned with the Mathematics for Safe AI
-assumptions.  They recognise the transition to a
-socio-techno-economic world with a high degree of AI-based
-interconnectivity, which demands a paradigm shift from object-oriented
-to interaction-oriented analysis standards. In
-these settings of enhanced runtime unpredictability, they
-account for the limitations of testing (where safety can be
-ascertained only within testing scenarios) through the
-development of formal methods (which can identify errors
-outside of testing scenarios). 
-=======
 The transition to a socio-techno-economic world with a high degree of AI-based
 interconnectivity demands a paradigm shift from object-oriented to
 interaction-oriented analysis standards. In these settings of enhanced runtime
 unpredictability, they account for the limitations of testing (where safety can
 be ascertained only within testing scenarios) through the development of formal
 methods (which can identify errors outside of testing scenarios).
->>>>>>> 5790503 (Minor)
 
 Our implementation plan  places significant consideration to the challenges
 pertaining to the extension of formal methods, which have been successful in the
@@ -130,7 +118,7 @@ remain within acceptable performance margins~\cite{baninajjarvnn}.
 %* What capabilities or future work could it unlock?
 %* Why do you want to spend your time on this?
 
-Forthcoming autonomous  agents are expected to incorporate
+Forthcoming autonomous agents are expected to incorporate
 neural networks in some of their components. Following the
 fragility and opaqueness of neural network models, rigorous
 verification and validation before deployment is essential
@@ -250,9 +238,6 @@ language will advance the cited ones by fully supporting
 neural-symbolic MAS and their properties, which support is
 currently lacking.
 
-
-
-
 %VenMAS \cite{Akintunde+22b} is a research prototype that verifies
 %neural-symbolic multi-agent systems by a reduction to the feasibility
 %problem of a mixed-integer linear program.  Currently, to verify such
@@ -294,18 +279,18 @@ following desiderata: the syntax should human and machine-readable, the language
 should be based on solid categorical foundations, and it should be easily
 extendible to specify various properties such as temporal logic, epistemic
 logic, and strategic properties. Additionally, the language should not be
-tightly coupled to any specific formalization of a neural-symbolic system. We
-will design this language using Turi and Plotkin's structural operational
-semantics ~\cite{TuriP97}, which provides a robust categorical foundation for
-obtaining off-the-shelf compositionality results. Recently, this has been
-extended to cover higher order languages like the $\lambda$-calculus as
-well~\cite{GoncharovMSTU23}. This framework enables modular reasoning about
-subsystems by ensuring bisimulations are congruences, facilitating verification
-and ensuring that complex MAS can be reasoned about and verified in a scalable,
-formal manner.
+tightly coupled to any specific formalization of a neural-symbolic system.  We
+will use notions from category theory to model agents as processes and
+transitions systems as coalgebras~\cite{Rutten00}, and structure our
+semantics Turi and Plotkin's distributive laws~\cite{TuriP97}, which provide a
+robust categorical foundation for obtaining off-the-shelf compositionality
+results. Recently, this has been extended to cover higher order languages like
+the $\lambda$-calculus as well~\cite{GoncharovMSTU23}. This framework enables
+modular reasoning about subsystems by ensuring bisimulations are congruences,
+facilitating verification and ensuring that complex MAS can be reasoned about
+and verified in a scalable, formal manner.
 
-
-\paragraph{WP2} (Elena, Panagiotis, Marco) First, we will design an
+\paragraph{WP2} (Elena, Panagiotis, Marco) We will design an
 abstract intermediate language for capturing the evolution of an
 NS-MAS. This will be an internal representation and an abstraction of
 the language of mixed-integer linear constraints that would allow us
